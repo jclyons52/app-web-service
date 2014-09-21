@@ -11,12 +11,20 @@
 |
 */
 
+Route::get('backbone/programs', 'BackboneController@programs');
+Route::get('backbone/groups', 'BackboneController@groups');
+Route::get('backbone/courseclasses', 'BackboneController@courseClasses');
+
 Route::resource('programs', 'ProgramsController');
+
 Route::resource('groups', 'GroupsController');
-Route::resource('classes', 'ClassesController');
+Route::resource('programs/{program_id}/groups', 'GroupsController');
+
+Route::resource('courseclasses', 'CourseClassesController');
+Route::resource('groups/{group_id}/courseclasses', 'CourseClassesController');
+
 Route::resource('courses', 'CoursesController');
 
-Route::get('/', function()
-{
-	return View::make('home');
+Route::get('/', function() { 
+	return View::make('home'); 
 });

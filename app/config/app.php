@@ -26,7 +26,8 @@ return array(
 	|
 	*/
 
-	'url' => 'http://localhost',
+	'url' => 'http://hopeful-helen.gopagoda.com',
+	// http://hopeful-helen.gopagoda.com
 
 	/*
 	|--------------------------------------------------------------------------

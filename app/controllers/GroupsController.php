@@ -7,9 +7,14 @@ class GroupsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index($id=null)
 	{
-		return Group::all();
+		if ($id) {
+			return Group::where('program_id', $id)->get();
+		}else{
+			return Group::all();
+		}
+		
 	}
 
 
@@ -31,7 +36,10 @@ class GroupsController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		return Group::create(array(
+				'group_code'=> Input::get('group_code'),
+				'program_id'=> Input::get('program_id')
+			));
 	}
 
 
@@ -44,6 +52,7 @@ class GroupsController extends \BaseController {
 	public function show($id)
 	{
 		return Group::find($id);
+		// return Group::where('program_id', $id)->get();
 	}
 
 
@@ -67,7 +76,13 @@ class GroupsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$input = Input::json();
+		$group = Group::find($id);
+
+
+		$group->group_code = $input->group_code;
+		$group->program_id = $input->program_id;
+		$group->save();
 	}
 
 
@@ -79,7 +94,7 @@ class GroupsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$group = Group::find($id)->delete();
 	}
 
 

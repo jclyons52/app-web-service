@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
+			'host'      => 'tunnel.pagodabox.com:3307', // tunnel.pagodabox.com:3307
 			'database'  => 'restapp',
-			'username'  => 'root',
-			'password'  => '',
+			'username'  => 'huong', // huong
+			'password'  => 'F2dwCYBk', // F2dwCYBk
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
